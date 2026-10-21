@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-21T16:56:45.248Z",
+  "browser": "Chrome/155.0.8059.80",
+  "passed": true,
+  "checks": [
+    "native 20,003-item search, ancestor paths, bounded pagination, literal markup, empty state, no search mutations",
+    "explicit result link opens in a new tab",
+    "real nested save preserves existing bookmark metadata, duplicate notice and explicit second-copy consent, only one folder ID persisted",
+    "worker serializes competing save requests without an accidental second copy",
+    "external changes mark results stale; renamed ancestor/destination prevents stale save",
+    "last saved folder survives reopening the full library",
+    "actual action popup captures the invoked page title and full URL using activeTab",
+    "tablist keyboard navigation and both views at 320px with 200% text"
+  ],
+  "axe": [
+    {
+      "state": "find",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "empty-search",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "save-details",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "save-ready",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "saved-duplicate",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "stale-recovered",
+      "violations": 0,
+      "incomplete": 0
+    },
+    {
+      "state": "toolbar-save",
+      "violations": 0,
+      "incomplete": 0
+    }
+  ],
+  "lighthouse": {
+    "desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "mobile": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    }
+  },
+  "seedMs": 808.2999999970198,
+  "extensionAccessibility": 100,
+  "performance": {
+    "count": 20003,
+    "readMs": 36.20000000298023,
+    "indexMs": 21.200000002980232,
+    "searchMs": [
+      1,
+      0.7000000029802322,
+      2.5999999940395355,
+      1.5,
+      0.4000000059604645
+    ]
+  }
+}
