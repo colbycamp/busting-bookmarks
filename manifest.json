@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Busting Bookmarks",
+  "version": "0.1.0",
+  "minimum_chrome_version": "102",
+  "description": "Find your native bookmarks and save pages into searchable folders.",
+  "permissions": ["bookmarks", "activeTab", "storage"],
+  "incognito": "not_allowed",
+  "background": {"service_worker":"background.js","type":"module"},
+  "omnibox": {"keyword":"bb"},
+  "commands": {"_execute_action":{"description":"Open bookmark search and save"}},
+  "action": {"default_title": "Busting Bookmarks", "default_popup": "app.html",
+    "default_icon":{"16":"icons/icon16.png","24":"icons/icon24.png","32":"icons/icon32.png"}},
+  "icons": {"16":"icons/icon16.png","32":"icons/icon32.png","48":"icons/icon48.png","128":"icons/icon128.png"}
+}

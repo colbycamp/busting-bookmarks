@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Busting Bookmarks</title>
+  <meta name="description" content="Search native bookmarks by title, address and folder path. Save web pages into your existing folders.">
+  <link rel="stylesheet" href="app.css">
+  <link rel="modulepreload" href="model.js">
+</head>
+<body><main>
+  <header><img src="icons/icon.svg" alt="" width="32" height="32"><div><h1>Busting Bookmarks</h1><p>Your bookmarks. Easier to find.</p></div></header>
+  <div class="toolbar"><div role="tablist" aria-label="Bookmark tools"><button id="find-tab" role="tab" aria-selected="true" aria-controls="find-panel">Find</button><button id="save-tab" role="tab" aria-selected="false" aria-controls="save-panel" tabindex="-1">Save a page</button></div><a id="library-link" href="library.html" target="_blank" rel="noopener">Open full page</a><button id="refresh" class="quiet">Refresh</button></div>
+  <p id="error" role="alert"></p><p id="status" role="status">Reading bookmarks…</p>
+  <section id="find-panel" role="tabpanel" aria-labelledby="find-tab">
+    <div class="search-controls"><div><label for="query">Find a bookmark</label><input id="query" type="search" maxlength="200" autocomplete="off" spellcheck="false" placeholder="Title, website, or folder path" aria-describedby="search-help"></div><div><label for="sort">Order</label><select id="sort"><option value="relevance">Best match</option><option value="newest">Newest saved</option><option value="title">Title</option></select></div></div>
+    <p id="search-help" class="muted">All words must match. Results open in new tabs.</p>
+    <div id="results-region" role="region" aria-label="Bookmark results" tabindex="0"><ul id="results"></ul></div>
+    <nav class="pager" aria-label="Results pages"><button id="previous" class="secondary" disabled>Previous</button><span id="result-count" class="muted" role="status">Loading bookmarks…</span><button id="next" class="secondary" disabled>Next</button></nav>
+  </section>
+  <section id="save-panel" role="tabpanel" aria-labelledby="save-tab" hidden>
+    <form id="save-form">
+      <details id="page-details" open><summary>Page details<span id="source-caption"></span></summary>
+      <div class="field-heading"><label for="page-url">Web address</label><button id="use-page" type="button" class="quiet">Use current page</button></div>
+      <textarea id="page-url" rows="2" required maxlength="16384" spellcheck="false" aria-describedby="address-help"></textarea>
+      <p id="address-help" class="muted">Save an HTTP or HTTPS page. Its full address is kept.</p>
+      <label for="page-title">Title</label><input id="page-title" required maxlength="4096" autocomplete="off">
+      </details>
+      <label for="folder-query">Find a destination folder</label><input id="folder-query" type="search" maxlength="200" autocomplete="off" placeholder="For example: learning programming" aria-describedby="folder-count">
+      <p id="folder-count" class="muted">Loading folders…</p>
+      <label for="folder">Save into</label><select id="folder" required aria-describedby="selected-folder"></select>
+      <p id="selected-folder" class="muted">Choose a folder above.</p>
+      <div id="copies" hidden><p id="copy-count"></p><ul id="copy-paths"></ul><label class="check"><input id="allow-copy" type="checkbox">Save another copy in the selected folder</label></div>
+      <button id="save" type="submit" disabled>Save bookmark</button>
+    </form>
+  </section>
+  <details id="about"><summary>How it works &amp; privacy</summary><p>Search uses your browser’s bookmark titles, addresses and full folder paths. It ignores case and accents, and every search word must match. With no search words, Best match shows newest bookmarks first. It does not search article contents.</p><p>Save creates a native bookmark in the folder you choose. Existing bookmarks, order, folders and metadata are left in place. Matching addresses are shown before saving another copy; query parameters and fragments remain significant.</p><p>Your browser remains the source of truth. Use its bookmark manager for HTML export/import and folder management. The extension remembers only the last folder you saved into, on this device.</p><p>No extension uploads, page extraction, analytics or accounts. Your browser’s own bookmark synchronization settings still apply. Opening a result visits its website normally. Non-web bookmarks remain searchable but cannot be opened here.</p><p>For address-bar search, type <kbd>bb</kbd>, press Tab or Space, then search. To assign a toolbar shortcut, use your browser’s extension shortcut settings.</p></details>
+</main><script type="module" src="app.js"></script></body>
+</html>

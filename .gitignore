@@ -1,0 +1,4 @@
+node_modules/
+dist/
+audit-results/
+.DS_Store
